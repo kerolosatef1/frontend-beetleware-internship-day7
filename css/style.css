@@ -1,0 +1,130 @@
+body {
+  margin: 0;
+  background: #f2f2f2;
+  font-family: Arial, sans-serif;
+}
+
+/* --- SEARCH BAR --- */
+.search-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+  flex-wrap: wrap;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.search-container input {
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  flex: 1 1 250px;
+  min-width: 200px;
+}
+
+.search-container button {
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  background: #ff4d4f;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.search-container button:hover {
+  background: #e04344;
+}
+
+/* --- GRID RESPONSIVE --- */
+#countriesContainer {
+  display: grid;
+  gap: 20px;
+  padding: 25px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+/* Card */
+.country {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.6s ease;
+  background: #fff;
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+}
+
+/* When shown */
+.country.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- IMAGE RESPONSIVE --- */
+.country img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* --- TEXT --- */
+.country h2 {
+  margin: 10px 0 5px;
+  font-size: 1.3rem;
+}
+
+.country p {
+  margin: 3px 0;
+  font-size: 0.95rem;
+}
+
+/* --- MEDIA QUERIES (Extra Responsive) --- */
+
+/* Very small screens */
+@media (max-width: 400px) {
+  #countriesContainer {
+    grid-template-columns: 1fr;
+  }
+  .country img {
+    height: 150px;
+  }
+  .country {
+    padding: 12px;
+  }
+}
+
+/* Tablets */
+@media (min-width: 600px) and (max-width: 900px) {
+  .country img {
+    height: 200px;
+  }
+}
+
+/* Large screens */
+@media (min-width: 1200px) {
+  #countriesContainer {
+    gap: 30px;
+  }
+  .country img {
+    height: 220px;
+  }
+  .country {
+    padding: 18px;
+  }
+}
+
+/* Ultra-wide monitors */
+@media (min-width: 1800px) {
+  #countriesContainer {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+  .country img {
+    height: 260px;
+  }
+}
